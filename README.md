@@ -21,14 +21,15 @@ An intelligent agent system that integrates Google Gemini AI with external tools
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌────────────────┐
 │   Google Gemini │◄──►│   LangGraph      │◄──►│  MCP Client    │
-│   (AI Engine)   │    │   (Workflow)     │    │  (Orchestrator)│
-└─────────────────┘    └──────────────────┘    └────────────────┘
-                                │                        │
-                                ▼                        ▼
-                       ┌─────────────────┐    ┌─────────────────┐
-                       │ Weather Server  │    │Calculator Server│
-                       │ (Go + OpenWM)   │    │   (Python)      │
-                       └─────────────────┘    └─────────────────┘
+│   (AI Engine)   │    │   (Workflow)     │    │ (MultiServer)  │
+└─────────────────┘    └──────────────────┘    └───────┬────────┘
+                                                        │
+                            ┌───────────────────────────┼───────────────────────┐
+                            ▼                           ▼                       ▼
+                   ┌─────────────────┐         ┌─────────────────┐    ┌─────────────────┐
+                   │ Weather Server  │         │Calculator Server│    │   Extensible    │
+                   │ (Go + OpenWM)   │         │   (Python)      │    │  MCP Servers    │
+                   └─────────────────┘         └─────────────────┘    └─────────────────┘
 ```
 
 ## 🚀 Quick Start
